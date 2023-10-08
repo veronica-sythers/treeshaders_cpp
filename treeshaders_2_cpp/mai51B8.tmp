@@ -1,0 +1,217 @@
+[gd_scene load_steps=15 format=3 uid="uid://b0fq5ymm1atea"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_8vsfp"]
+[ext_resource type="Script" path="res://tree_manager.gd" id="1_vrdr0"]
+[ext_resource type="Script" path="res://Camera3D.gd" id="2_44nmr"]
+[ext_resource type="Script" path="res://slider.gd" id="2_cnslh"]
+[ext_resource type="Script" path="res://DirectionalLight3D.gd" id="2_vomk3"]
+[ext_resource type="Script" path="res://cursor.gd" id="3_yuqjj"]
+[ext_resource type="Texture2D" uid="uid://dxnnun5few3e2" path="res://arrow.png" id="6_070y1"]
+[ext_resource type="Script" path="res://tree_graphics_options.gd" id="8_8hgol"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_s51mh"]
+vertices = PackedVector3Array(-55.75, 0.5, -63.5, -63.5, 0.5, -63.5, -63.5, 0.5, -55.75, -63.5, 0.5, 55.5, -63.5, 0.5, 63.5, -55.75, 0.5, 63.5, 63.5, 0.5, -55.75, 63.5, 0.5, -63.5, 55.5, 0.5, -63.5, 55.5, 0.5, 63.5, 63.5, 0.5, 63.5, 63.5, 0.5, 55.5, -47.75, 0.5, -63.5, -55.75, 0.5, -63.5, -63.5, 0.5, -55.75, -63.5, 0.5, -47.75, -63.5, 0.5, 55.5, -55.75, 0.5, 63.5, -47.75, 0.5, 63.5, -63.5, 0.5, 47.5, 63.5, 0.5, -47.75, 63.5, 0.5, -55.75, 55.5, 0.5, -63.5, 47.5, 0.5, -63.5, 47.5, 0.5, 63.5, 55.5, 0.5, 63.5, 63.5, 0.5, 55.5, -63.5, 0.5, 0, -63.5, 0.5, 7.75, -8, 0.5, 63.5, 23.75, 0.5, 63.5, 63.5, 0.5, 31.75, 63.5, 0.5, 23.75, 15.75, 0.5, 63.5, 63.5, 0.5, -8, 63.5, 0.5, -16, 15.75, 0.5, -63.5, 7.75, 0.5, -63.5, 47.5, 0.5, 63.5, 63.5, 0.5, 55.5, 63.5, 0.5, 47.5, 39.5, 0.5, 63.5, -39.75, 0.5, -63.5, -47.75, 0.5, -63.5, -63.5, 0.5, -47.75, -63.5, 0.5, -39.75, -63.5, 0.5, 47.5, -47.75, 0.5, 63.5, -39.75, 0.5, 63.5, -63.5, 0.5, 39.5, 63.5, 0.5, -39.75, 63.5, 0.5, -47.75, 47.5, 0.5, -63.5, 39.5, 0.5, -63.5, -16, 0.5, -63.5, -24, 0.5, -63.5, -63.5, 0.5, -24, -63.5, 0.5, -16, -63.5, 0.5, 23.75, -24, 0.5, 63.5, -16, 0.5, 63.5, -63.5, 0.5, 15.75, 63.5, 0.5, -8, 7.75, 0.5, -63.5, 0, 0.5, -63.5, 63.5, 0.5, 0, 63.5, 0.5, -16, 63.5, 0.5, -24, 23.75, 0.5, -63.5, 15.75, 0.5, -63.5, 39.5, 0.5, 63.5, 63.5, 0.5, 47.5, 63.5, 0.5, 39.5, 31.75, 0.5, 63.5, -63.5, 0.5, 31.75, -63.5, 0.5, 39.5, -39.75, 0.5, 63.5, -31.75, 0.5, 63.5, 63.5, 0.5, -39.75, 39.5, 0.5, -63.5, 31.75, 0.5, -63.5, 63.5, 0.5, -31.75, -31.75, 0.5, -63.5, -39.75, 0.5, -63.5, -63.5, 0.5, -39.75, -63.5, 0.5, -31.75, 63.5, 0.5, 0, 0, 0.5, -63.5, -63.5, 0.5, 0, -8, 0.5, 63.5, 0, 0.5, 63.5, 63.5, 0.5, 7.75, 15.75, 0.5, 63.5, 63.5, 0.5, 23.75, 63.5, 0.5, 15.75, 7.75, 0.5, 63.5, 31.75, 0.5, 63.5, 63.5, 0.5, 39.5, 63.5, 0.5, 31.75, 23.75, 0.5, 63.5, 0, 0.5, -63.5, -8, 0.5, -63.5, -63.5, 0.5, -8, -63.5, 0.5, 0, 7.75, 0.5, 63.5, 63.5, 0.5, 15.75, 63.5, 0.5, 7.75, 0, 0.5, 63.5, -63.5, 0.5, 31.75, -31.75, 0.5, 63.5, -24, 0.5, 63.5, -63.5, 0.5, 23.75, 63.5, 0.5, -24, 63.5, 0.5, -31.75, 31.75, 0.5, -63.5, 23.75, 0.5, -63.5, -24, 0.5, -63.5, -31.75, 0.5, -63.5, -63.5, 0.5, -31.75, -63.5, 0.5, -24, -8, 0.5, -63.5, -16, 0.5, -63.5, -63.5, 0.5, -16, -63.5, 0.5, -8, -63.5, 0.5, 15.75, -16, 0.5, 63.5, -8, 0.5, 63.5, -63.5, 0.5, 7.75)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(8, 7, 6), PackedInt32Array(11, 10, 9), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 15), PackedInt32Array(17, 16, 18), PackedInt32Array(18, 16, 19), PackedInt32Array(21, 20, 22), PackedInt32Array(22, 20, 23), PackedInt32Array(26, 25, 24), PackedInt32Array(29, 28, 27), PackedInt32Array(31, 30, 32), PackedInt32Array(32, 30, 33), PackedInt32Array(35, 34, 36), PackedInt32Array(36, 34, 37), PackedInt32Array(39, 38, 40), PackedInt32Array(40, 38, 41), PackedInt32Array(43, 42, 44), PackedInt32Array(44, 42, 45), PackedInt32Array(47, 46, 48), PackedInt32Array(48, 46, 49), PackedInt32Array(51, 50, 52), PackedInt32Array(52, 50, 53), PackedInt32Array(55, 54, 56), PackedInt32Array(56, 54, 57), PackedInt32Array(59, 58, 60), PackedInt32Array(60, 58, 61), PackedInt32Array(63, 62, 64), PackedInt32Array(64, 62, 65), PackedInt32Array(67, 66, 68), PackedInt32Array(68, 66, 69), PackedInt32Array(71, 70, 72), PackedInt32Array(72, 70, 73), PackedInt32Array(75, 74, 76), PackedInt32Array(76, 74, 77), PackedInt32Array(79, 78, 80), PackedInt32Array(80, 78, 81), PackedInt32Array(83, 82, 84), PackedInt32Array(84, 82, 85), PackedInt32Array(91, 90, 86), PackedInt32Array(86, 90, 89), PackedInt32Array(86, 89, 88), PackedInt32Array(86, 88, 87), PackedInt32Array(93, 92, 94), PackedInt32Array(94, 92, 95), PackedInt32Array(97, 96, 98), PackedInt32Array(98, 96, 99), PackedInt32Array(101, 100, 102), PackedInt32Array(102, 100, 103), PackedInt32Array(105, 104, 106), PackedInt32Array(106, 104, 107), PackedInt32Array(109, 108, 110), PackedInt32Array(110, 108, 111), PackedInt32Array(113, 112, 114), PackedInt32Array(114, 112, 115), PackedInt32Array(117, 116, 118), PackedInt32Array(118, 116, 119), PackedInt32Array(121, 120, 122), PackedInt32Array(122, 120, 123), PackedInt32Array(125, 124, 126), PackedInt32Array(126, 124, 127)]
+geometry_source_geometry_mode = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_esbki"]
+albedo_color = Color(0.619608, 0.0313726, 0.0980392, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2byye"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6qkth"]
+size = Vector3(0.02, 0.02, 0.02)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r1y7i"]
+albedo_color = Color(1, 0, 0.247059, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6w74d"]
+size = Vector3(0.02, 0.02, 0.02)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_8vsfp")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_s51mh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D" groups=["navigation_mesh_source_group"]]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_esbki")
+mesh = SubResource("PlaneMesh_2byye")
+skeleton = NodePath("../..")
+
+[node name="trees" type="Node3D" parent="NavigationRegion3D"]
+script = ExtResource("1_vrdr0")
+
+[node name="agents" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
+projection = 1
+current = true
+far = 20.0
+script = ExtResource("2_44nmr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.938506, 0.322745, 0.12265, -0.0668227, -0.178726, 0.981627, 0.338736, -0.929458, -0.146168, 0, 2.50705, 0)
+light_bake_mode = 0
+shadow_enabled = true
+directional_shadow_mode = 0
+directional_shadow_split_1 = 0.416
+directional_shadow_fade_start = 0.0
+script = ExtResource("2_vomk3")
+
+[node name="cursor" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.18058)
+script = ExtResource("3_yuqjj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cursor"]
+shape = SubResource("BoxShape3D_6qkth")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cursor"]
+material_override = SubResource("StandardMaterial3D_r1y7i")
+mesh = SubResource("BoxMesh_6w74d")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="fps" type="Label" parent="Control"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0
+text = "FPS"
+
+[node name="trees" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 28.0
+offset_right = 41.0
+offset_bottom = 51.0
+text = "trees: "
+
+[node name="cam_size" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 56.0
+offset_right = 48.0
+offset_bottom = 82.0
+text = "trees: "
+
+[node name="occluders" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 82.0
+offset_right = 40.0
+offset_bottom = 105.0
+text = "occluders:"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="sunrot_x" type="PanelContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_cnslh")
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/sunrot_x"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "TEXT"
+
+[node name="HSlider" type="HSlider" parent="Control/VBoxContainer/sunrot_x"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+min_value = -3.14
+max_value = 3.14
+step = 0.01
+value = -1.78
+
+[node name="sunrot_y" type="PanelContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_cnslh")
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/sunrot_y"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "TEXT"
+
+[node name="HSlider" type="HSlider" parent="Control/VBoxContainer/sunrot_y"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+min_value = -3.14
+max_value = 3.14
+step = 0.01
+value = -0.71
+
+[node name="wind_rot" type="PanelContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_cnslh")
+
+[node name="arrow" type="Sprite2D" parent="Control/VBoxContainer/wind_rot"]
+position = Vector2(14, 8)
+scale = Vector2(0.28125, 0.234375)
+texture = ExtResource("6_070y1")
+
+[node name="HSlider" type="HSlider" parent="Control/VBoxContainer/wind_rot"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+min_value = -3.14
+max_value = 3.14
+step = 0.01
+value = -0.14
+
+[node name="wind_strength" type="PanelContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_cnslh")
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/wind_strength"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "TEXT"
+
+[node name="HSlider" type="HSlider" parent="Control/VBoxContainer/wind_strength"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+min_value = 0.01
+max_value = 3.0
+step = 0.01
+value = 1.0
+exp_edit = true
+
+[node name="tree_graphics_options" type="OptionButton" parent="Control/VBoxContainer"]
+layout_mode = 2
+item_count = 3
+selected = 0
+popup/item_0/text = "original"
+popup/item_0/id = 0
+popup/item_1/text = "speed_tree"
+popup/item_1/id = 1
+popup/item_2/text = "speed_tree_expanded"
+popup/item_2/id = 2
+script = ExtResource("8_8hgol")
+
+[connection signal="bake_finished" from="NavigationRegion3D" to="." method="_on_navigation_region_3d_bake_finished"]
+[connection signal="value_changed" from="Control/VBoxContainer/sunrot_x/HSlider" to="DirectionalLight3D" method="_on_x_changed"]
+[connection signal="value_changed" from="Control/VBoxContainer/sunrot_x/HSlider" to="Control/VBoxContainer/sunrot_x" method="_on_value_changed"]
+[connection signal="value_changed" from="Control/VBoxContainer/sunrot_y/HSlider" to="DirectionalLight3D" method="_on_y_changed"]
+[connection signal="value_changed" from="Control/VBoxContainer/sunrot_y/HSlider" to="Control/VBoxContainer/sunrot_y" method="_on_value_changed"]
+[connection signal="value_changed" from="Control/VBoxContainer/wind_rot/HSlider" to="Control/VBoxContainer/wind_rot" method="_on_wind_rot_changed"]
+[connection signal="value_changed" from="Control/VBoxContainer/wind_rot/HSlider" to="Control/VBoxContainer/wind_rot" method="_on_arrow_changed"]
+[connection signal="value_changed" from="Control/VBoxContainer/wind_strength/HSlider" to="Control/VBoxContainer/wind_strength" method="_on_value_changed"]
+[connection signal="value_changed" from="Control/VBoxContainer/wind_strength/HSlider" to="Control/VBoxContainer/wind_strength" method="_onwind_strength_changed"]
+[connection signal="item_selected" from="Control/VBoxContainer/tree_graphics_options" to="Control/VBoxContainer/tree_graphics_options" method="_on_item_selected"]

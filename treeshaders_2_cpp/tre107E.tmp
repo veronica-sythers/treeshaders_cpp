@@ -1,0 +1,68 @@
+[gd_scene load_steps=12 format=3 uid="uid://cdv3xe7xjjpyx"]
+
+[ext_resource type="Script" path="res://tree.gd" id="1_hstan"]
+[ext_resource type="Material" uid="uid://d0nty5i4fd81i" path="res://leaves_1.tres" id="2_al3ni"]
+[ext_resource type="Material" uid="uid://7w65awy1hqfc" path="res://leaves_2.tres" id="3_5a1av"]
+[ext_resource type="Material" uid="uid://dg8d127fju84t" path="res://leaves_3.tres" id="4_pu8qs"]
+[ext_resource type="Texture2D" uid="uid://v6l5eli1b754" path="res://tree_dirt.png" id="5_jtbqq"]
+[ext_resource type="Texture2D" uid="uid://ctav6jqf2y88q" path="res://green_dot.png" id="6_2x6np"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uj2u5"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_2r22m"]
+subdivide_width = 64
+subdivide_depth = 64
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n50k6"]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("5_jtbqq")
+
+[sub_resource type="QuadMesh" id="QuadMesh_fpscx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_b76i4"]
+
+[node name="tree" type="Node3D"]
+script = ExtResource("1_hstan")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_uj2u5")
+
+[node name="leaves_1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.5, 0)
+material_override = ExtResource("2_al3ni")
+mesh = SubResource("QuadMesh_2r22m")
+
+[node name="leaves_2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.8, 0)
+material_override = ExtResource("3_5a1av")
+mesh = SubResource("QuadMesh_2r22m")
+
+[node name="leaves_3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.1, 0)
+material_override = ExtResource("4_pu8qs")
+mesh = SubResource("QuadMesh_2r22m")
+
+[node name="dirt" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.01, 0)
+material_override = SubResource("StandardMaterial3D_n50k6")
+mesh = SubResource("QuadMesh_fpscx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+transparency = 1.0
+cast_shadow = 0
+mesh = SubResource("BoxMesh_b76i4")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.2, 0)
+visible = false
+texture = ExtResource("6_2x6np")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

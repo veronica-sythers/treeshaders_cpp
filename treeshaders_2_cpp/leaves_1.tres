@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://d0nty5i4fd81i"]
+
+[ext_resource type="Shader" path="res://tree.gdshader" id="1_ievod"]
+[ext_resource type="Texture2D" uid="uid://ckf1rcqix8hl6" path="res://wind_gradient.tres" id="2_p7vg5"]
+[ext_resource type="Texture2D" uid="uid://rmf41r6as7pg" path="res://bot_b.png" id="3_q58vo"]
+[ext_resource type="Texture2D" uid="uid://dr85iwuh2xivi" path="res://wind_noise.tres" id="4_gcuhm"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ievod")
+shader_parameter/vignette_radius = 0.1
+shader_parameter/vignette_centers = null
+shader_parameter/wire_on = false
+shader_parameter/albedo = null
+shader_parameter/alpha_threshold = 0.01
+shader_parameter/noise_speed = Vector2(0.25, 0)
+shader_parameter/noise_scale = 0.06
+shader_parameter/sway_frequency = 1.0
+shader_parameter/sway_amplitude = 0.05
+shader_parameter/rotation = 0.0
+shader_parameter/time_factor = 1.0
+shader_parameter/time_offset = 1.0
+shader_parameter/image_texture = ExtResource("3_q58vo")
+shader_parameter/noise_texture = ExtResource("4_gcuhm")
+shader_parameter/gradient_texture = ExtResource("2_p7vg5")

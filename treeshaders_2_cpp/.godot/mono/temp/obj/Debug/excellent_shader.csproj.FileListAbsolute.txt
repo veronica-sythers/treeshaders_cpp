@@ -1,0 +1,17 @@
+C:\Users\ameri\Documents\treeshaders_2\.godot\mono\temp\bin\Debug\excellent_shader.deps.json
+C:\Users\ameri\Documents\treeshaders_2\.godot\mono\temp\bin\Debug\excellent_shader.runtimeconfig.json
+C:\Users\ameri\Documents\treeshaders_2\.godot\mono\temp\bin\Debug\excellent_shader.dll
+C:\Users\ameri\Documents\treeshaders_2\.godot\mono\temp\bin\Debug\excellent_shader.pdb
+C:\Users\ameri\Documents\treeshaders_2\.godot\mono\temp\bin\Debug\GodotSharp.dll
+C:\Users\ameri\Documents\treeshaders_2\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+C:\Users\ameri\Documents\treeshaders_2\.godot\mono\temp\obj\Debug\excellent_shader.csproj.AssemblyReference.cache
+C:\Users\ameri\Documents\treeshaders_2\.godot\mono\temp\obj\Debug\excellent_shader.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ameri\Documents\treeshaders_2\.godot\mono\temp\obj\Debug\excellent_shader.AssemblyInfoInputs.cache
+C:\Users\ameri\Documents\treeshaders_2\.godot\mono\temp\obj\Debug\excellent_shader.AssemblyInfo.cs
+C:\Users\ameri\Documents\treeshaders_2\.godot\mono\temp\obj\Debug\excellent_shader.csproj.CoreCompileInputs.cache
+C:\Users\ameri\Documents\treeshaders_2\.godot\mono\temp\obj\Debug\excellent_shader.csproj.CopyComplete
+C:\Users\ameri\Documents\treeshaders_2\.godot\mono\temp\obj\Debug\excellent_shader.dll
+C:\Users\ameri\Documents\treeshaders_2\.godot\mono\temp\obj\Debug\refint\excellent_shader.dll
+C:\Users\ameri\Documents\treeshaders_2\.godot\mono\temp\obj\Debug\excellent_shader.pdb
+C:\Users\ameri\Documents\treeshaders_2\.godot\mono\temp\obj\Debug\excellent_shader.genruntimeconfig.cache
+C:\Users\ameri\Documents\treeshaders_2\.godot\mono\temp\obj\Debug\ref\excellent_shader.dll
