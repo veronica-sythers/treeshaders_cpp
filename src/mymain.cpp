@@ -12,6 +12,7 @@
 #include "utils.hpp"
 
 using namespace godot;
+using namespace std::chrono_literals;
 
 void MyMain::_bind_methods() {
     ClassDB::bind_method(D_METHOD("set_cam_size"), &MyMain::set_cam_size);
@@ -21,17 +22,47 @@ void MyMain::_bind_methods() {
     ClassDB::bind_method(D_METHOD("_on_agent_count_changed"), &MyMain::_on_agent_count_changed);
 }
 
-MyMain::MyMain() {
+void MyMain::worker(int id) {
+    srand(id);
+    for(;;) {
+        std::this_thread::sleep_for(std::chrono::milliseconds(rand() % 4 + 2));
+        double w = 0;
+        int iters = rand() % 1000 + 1000000;
+        for (int j = 0; j != iters; j++) {
+            w += sin(j);
+        }
+        mu[id]->lock();
+        data[id] += ((int)w) % 10;
+        // std::cout << "Thread " << id << " updated data to " << data[id] << "\n";
+        mu[id]->unlock();
+    }
+}
 
+MyMain::MyMain() {
 }
 
 MyMain::~MyMain() {
-
+    for (auto& t : threads) {
+        t.join();
+    }
 }
 
 void MyMain::_ready() {
     if (Engine::get_singleton()->is_editor_hint()) {
         return;
+    }
+
+    thread_count = 5;
+    for (int i = 0; i < thread_count; ++i) {
+        std::cout << "MAKING THREAD: " << i << std::endl;
+        mu.push_back(new std::timed_mutex());
+        mu[i]->lock();
+        std::cout << "B" << std::endl;
+        data.push_back(0);
+        std::cout << "C" << std::endl;
+        threads.emplace_back(std::thread(&MyMain::worker, this, i));
+        mu[i]->unlock();
+        std::cout << "D" << std::endl;
     }
 
     MyTextures::getInstance();
@@ -74,6 +105,17 @@ void MyMain::_process(double delta) {
     if (d > 2) {
 
     }
+
+    std::cout << "Periodic check: ";
+    for (int j = 0; j < thread_count; ++j) {
+        if (mu[j]->try_lock_for(100us)) {
+            std::cout << "\tThread " << j << ": " << data[j] << " ";
+            mu[j]->unlock();
+        } else {
+            std::cout << "LOCK FAIL" << std::endl;
+        }
+    }
+    std::cout << std::endl;
 
     get_node<Label>("Control/fps")->set_text(
         String("FPS: %s") % Engine::get_singleton()->get_frames_per_second()

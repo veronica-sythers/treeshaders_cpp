@@ -7,6 +7,8 @@
 #include <godot_cpp/classes/noise_texture2d.hpp>
 #include <godot_cpp/classes/packed_scene.hpp>
 #include <thread>
+#include <mutex>
+#include <chrono>
 
 namespace godot {
 
@@ -19,9 +21,14 @@ private:
     double d;
     Ref<PackedScene> tree_scene;
     Ref<PackedScene> agent_scene;
+
     std::vector<std::thread> threads;
+    std::vector<std::timed_mutex*> mu;
+    std::vector<int> data;
+    int thread_count;
 
     void add_tree(const Vector3& spawn_loc);
+    void worker(int id);
 
 protected:
     static void _bind_methods();
